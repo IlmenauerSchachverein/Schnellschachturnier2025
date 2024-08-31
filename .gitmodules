@@ -1,0 +1,6 @@
+[submodule "TurnierWebsite"]
+	path = TurnierWebsite
+	url = https://github.com/eskopp/TurnierWebsite
+[submodule "Registrierung"]
+	path = Registrierung
+	url = https://github.com/IlmenauerSchachverein/Registrierung
