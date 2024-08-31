@@ -4,3 +4,6 @@
 [submodule "Registrierung"]
 	path = Registrierung
 	url = https://github.com/IlmenauerSchachverein/Registrierung
+[submodule "themes/hextra"]
+	path = themes/hextra
+	url = https://github.com/imfing/hextra

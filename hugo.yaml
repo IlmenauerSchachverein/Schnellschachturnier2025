@@ -1,11 +1,10 @@
 # Hugo configuration file
-title: 30. Ilmenauer Schnellschachturnier 2024
-theme: "hextra"
+title: 30. Ilmenauer Schnellschachturnier 2025
 
 # import hextra as module
-# module:
-#  imports:
-#    - path: github.com/imfing/hextra
+ module:
+  imports:
+    - path: github.com/imfing/hextra
 
 markup:
   # allow raw html
@@ -22,16 +21,12 @@ languages:
   de:
     languageName: German
     weight: 1
-    title: 30. Ilmenauer Schnellschachturnier 2024
-  en:
-    languageName: English
-    weight: 2
-    title: 30th Ilmenau Rapid Chess Tournament 2024
-
+    title: 30. Ilmenauer Schnellschachturnier 2025
+    
 menu:
   main:
     - name: Anmeldung ↗
-      url: "https://forms.gle/ZLjpR8TB2WYDJSvK9"
+      url: "anmeldung"
       weight: 1
     - name: Tabellen
       pageRef: /table
@@ -51,7 +46,7 @@ menu:
         type: search
     - name: GitHub
       weight: 6
-      url: "https://github.com/IlmenauerSchachverein/Schnellschachturnier2024"
+      url: "https://github.com/IlmenauerSchachverein/Schnellschachturnier2025"
       params:
         icon: gitlab
     - name: Instagram
@@ -69,9 +64,9 @@ params:
     default: light
 
   footer:
-    displayCopyright: true
-    displayPoweredBy: true
+    displayCopyright: false
+    displayPoweredBy: false
 
   editURL:
     enable: false
-    base: "https://github.com/IlmenauerSchachverein/Schnellschachturnier2024"
+    base: "https://github.com/IlmenauerSchachverein/Schnellschachturnier2025"
