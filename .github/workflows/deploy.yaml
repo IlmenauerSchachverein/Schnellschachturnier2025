@@ -40,5 +40,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub Actions Token für Authentifizierung
           publish_dir: ./public  # Verzeichnis, das du nach GitHub Pages pushen willst
-          publish_branch: main  # Push zurück in den main-Branch
-          destination_dir: docs  # Ordner, in dem der Inhalt gespeichert wird (z.B. docs)
+          publish_branch: gh-pages 
+          
