@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Hugo Site to GitHub Pages
 
 on:
   push:
@@ -38,5 +38,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  
-          publish_dir: ./public 
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Automatische Authentifizierung mit GitHub Actions Token
+          publish_dir: ./public  # Das Verzeichnis, das nach GitHub Pages gepusht wird
+          destination_dir: ''  # Stellt sicher, dass die Dateien im Root des main-Branch landen
+          publish_branch: main  # Push in den main-Branch
