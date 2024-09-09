@@ -68,5 +68,5 @@ params:
     displayPoweredBy: false
 
   editURL:
-    enable: false
+    enable: true
     base: "https://github.com/IlmenauerSchachverein/Schnellschachturnier2025"
