@@ -1,5 +1,5 @@
 ---
-title: Schnellschachturnier 2024
+title: Schnellschachturnier 2025
 toc: false
 type: docs
 ---
