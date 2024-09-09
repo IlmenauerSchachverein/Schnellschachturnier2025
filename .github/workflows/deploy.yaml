@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write  # Erlaubt das Schreiben von Inhalten in den main-Branch
+      contents: write 
 
     steps:
       - name: Checkout code
@@ -41,5 +41,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub Actions Token für Authentifizierung
-          publish_dir: ./public  # Verzeichnis, das du nach GitHub Pages pushen willst
+          github_token: ${{ secrets.GITHUB_TOKEN }}  
+          publish_dir: ./public  
