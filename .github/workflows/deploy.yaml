@@ -38,7 +38,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Automatische Authentifizierung mit GitHub Actions Token
-          publish_dir: ./public  # Das Verzeichnis, das nach GitHub Pages gepusht wird
-          destination_dir: ''  # Stellt sicher, dass die Dateien im Root des main-Branch landen
-          publish_branch: main  # Push in den main-Branch
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub Actions Token für Authentifizierung
+          publish_dir: ./public  # Verzeichnis, das du nach GitHub Pages pushen willst
+          publish_branch: main  # Push zurück in den main-Branch
+          destination_dir: docs  # Ordner, in dem der Inhalt gespeichert wird (z.B. docs)
