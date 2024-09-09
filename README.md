@@ -1,1 +1,1 @@
-# Vereinsmeisterschat 2024
+# Schnellschachturnier2025
