@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>30. Ilmenauer Schnellschachturnier 2025 – Schnellschachturnier 2024</title>
-    <link>/table/</link>
+    <link>https://ilmenauerschachverein.github.io/Schnellschachturnier2025/table/</link>
     <description>Recent content in Schnellschachturnier 2024 on 30. Ilmenauer Schnellschachturnier 2025</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de</language>
     
-	  <atom:link href="/table/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://ilmenauerschachverein.github.io/Schnellschachturnier2025/table/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Special tables</title>
-      <link>/table/special/_index.en/</link>
+      <link>https://ilmenauerschachverein.github.io/Schnellschachturnier2025/table/special/_index.en/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/table/special/_index.en/</guid>
+      <guid>https://ilmenauerschachverein.github.io/Schnellschachturnier2025/table/special/_index.en/</guid>
       <description>
         
         
