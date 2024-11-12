@@ -48,10 +48,13 @@ Das Turnier wird weder nach ELO noch nach DWZ ausgewertet.
 
 - 7 Runden Schweizer System
 - 25 min + 0 Sek. ohne Zugkontrolle
+- es besteht keine Mitschreibepflicht 
+- die Karrenzzeit beträgt 10 min
 
 ## Startgeld
 
 - 13 € Startgeld
 - 7 € ermäßigt für Schüler, Studenten, Rentner
+- 5 € Spätmeldegebühr nach dem 26.07.2025
 - Bezahlung nur vor Ort möglich
 - Quittung möglich. Bitte bei Anmeldung sagen
