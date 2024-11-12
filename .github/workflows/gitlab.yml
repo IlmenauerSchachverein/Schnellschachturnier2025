@@ -1,43 +1,24 @@
-name: Sync all branches to GitLab
+name: Mirror GitHub to GitLab
 
 on:
   push:
     branches:
-      - '**'
+      - main 
 
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code from GitHub
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Git 
-      run: |
-        git config --global user.name "Erik Skopp"
-        git config --global user.email "skopp.erik@gmail.com"
-
-    - name: Add GitLab remote
-      run: git remote add gitlab https://gitlab-ci-token:${{ secrets.GITLAB }}@gitlab.erik-skopp.de/ilmenauersv/isv_schnellschachturnier2025.git
-
-    - name: Fetch from GitLab
-      run: git fetch gitlab
-
-    - name: Merge changes from GitLab
-      run: |
-        branch_name=$(echo "${GITHUB_REF#refs/heads/}")
-        git merge "gitlab/$branch_name" --allow-unrelated-histories || true
-
-    - name: Push to GitLab
-      run: |
-        branch_name=$(echo "${GITHUB_REF#refs/heads/}")
-        git push gitlab "refs/heads/$branch_name:refs/heads/$branch_name"
-        
-    - name: Push to GitLab
-      run: |
-        branch_name=$(echo "${GITHUB_REF#refs/heads/}")
-        git push gitlab "refs/heads/$branch_name:refs/heads/$branch_name"  # Pusht den aktuellen Branch zu GitLab und erstellt den Branch falls nötig
-        git push --tags gitlab  # Pusht alle Tags zu GitLab
+      - name: Sync GitHub to GitLab
+        uses: eskopp/github-to-gitlab@v1
+        with:
+          git_username: "ZXNrb3Bw"
+          git_email: "c2tvcHAuZXJpa0BnbWFpbC5jb20="
+          gitlab_repo: "aHR0cHM6Ly9naXRsYWIuZXJpay1za29wcC5kZS9pbG1lbmF1ZXJzdi9TY2huZWxsc2NoYWNodHVybmllcjIwMjUuZ2l0"
+          gitlab_token: ${{ secrets.GITLAB }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          base64: "true"

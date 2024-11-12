@@ -1,6 +1,6 @@
 # Hugo configuration file
-title: 30. Ilmenauer Schnellschachturnier 2025
-baseURL: "https://ilmenauerschachverein.github.io/Schnellschachturnier2025/"
+title: 31. Ilmenauer Schnellschachturnier 2025
+baseURL: "https://isst25.ilmenauer-schachverein.de/"
 
 module:
  imports:
@@ -21,7 +21,7 @@ languages:
   de:
     languageName: German
     weight: 1
-    title: 30. Ilmenauer Schnellschachturnier 2025
+    title: 31. Ilmenauer Schnellschachturnier 2025
     
 menu:
   main:
