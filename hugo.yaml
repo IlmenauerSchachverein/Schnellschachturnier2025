@@ -1,7 +1,7 @@
-# Hugo configuration file
 title: 31. Ilmenauer Schnellschachturnier 2025
-baseURL: "https://isst25.ilmenauer-schachverein.de/"
+baseURL: "isst25.ilmenauer-schachverein.de"
 
+# import hextra as module
 module:
  imports:
   - path: github.com/imfing/hextra
@@ -17,25 +17,23 @@ markup:
     noClasses: false
 
 defaultContentLanguage: de
+
 languages:
   de:
     languageName: German
     weight: 1
     title: 31. Ilmenauer Schnellschachturnier 2025
-    
+    contentDir: "content/de"
 menu:
   main:
-    - name: Anmeldung ↗
-      url: "anmeldung"
-      weight: 1
-    - name: Tabellen
-      pageRef: /table
+    - name: Anmeldung
+      pageRef: "anmeldung"
       weight: 1
     - name: Datenschutzerklärung
-      pageRef: /data
+      pageRef: datenschutz
       weight: 3
     - name: Impressum
-      pageRef: /imprint
+      pageRef: impressum
       weight: 3
     - name: Ilmenauer Schachverein ↗
       url: "https://ilmenauer-schachverein.de"
@@ -46,9 +44,9 @@ menu:
         type: search
     - name: GitHub
       weight: 6
-      url: "https://github.com/IlmenauerSchachverein/Schnellschachturnier2025"
+      url: "https://github.com/IlmenauerSchachverein/IlmenauerOpen2024"
       params:
-        icon: gitlab
+        icon: github
     - name: Instagram
       weight: 7
       url: "https://instagram.com/ilmenauer_schachverein"
@@ -56,6 +54,7 @@ menu:
         icon: instagram
 
 params:
+  disableToc: true
   navbar:
     displayTitle: true
     displayLogo: true
@@ -64,9 +63,12 @@ params:
     default: light
 
   footer:
-    displayCopyright: false
-    displayPoweredBy: false
+    displayCopyright: true
+    displayPoweredBy: true
 
   editURL:
-    enable: true
-    base: "https://github.com/IlmenauerSchachverein/Schnellschachturnier2025"
+    enable: false
+    base: "https://github.com/IlmenauerSchachverein/IlmenauerOpen2024/edit/main/content"
+  
+  page:
+    width: full
