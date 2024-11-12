@@ -52,6 +52,9 @@ menu:
       url: "https://instagram.com/ilmenauer_schachverein"
       params:
         icon: instagram
+    - name: Chess-Results
+      url: "https://chess-results.com/tnr1056111.aspx?lan=0"
+      weight: 2
 
 params:
   disableToc: true

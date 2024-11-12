@@ -1,5 +1,5 @@
 ---
-title: Download Tabellen
+title: Download Tabellen (pdf)
 toc: false
 type: docs
 ---
