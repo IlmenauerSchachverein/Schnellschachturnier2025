@@ -1,5 +1,5 @@
 title: 31. Ilmenauer Schnellschachturnier 2025
-baseURL: "isst25.ilmenauer-schachverein.de"
+baseURL: "https://isst25.ilmenauer-schachverein.de/"
 
 # import hextra as module
 module:
