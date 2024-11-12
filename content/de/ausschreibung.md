@@ -21,15 +21,15 @@ Das Turnier wird weder nach ELO noch nach DWZ ausgewertet.
 
 | Datum      | Uhrzeit     | Ereignis                   |
 |------------|-------------|----------------------------|
-| 10.08.2024 | Bis 09:30   | Anmeldung                  |
-| 10.08.2024 | 10:00       | 1. Runde                   |
-| 10.08.2024 | 11:00       | 2. Runde                   |
-| 10.08.2024 | 12:00       | 3. Runde mit Mittagspause  |
-| 10.08.2024 | 14:00       | 4. Runde                   |
-| 10.08.2024 | 15:00       | 5. Runde                   |
-| 10.08.2024 | 16:00       | 6. Runde                   |
-| 10.08.2024 | 17:00       | 7. Runde                   |
-| 10.08.2024 | Anschließend| Siegerehrung               |
+| 16.08.2025 | Bis 09:30   | Anmeldung                  |
+| 16.08.2025 | 10:00       | 1. Runde                   |
+| 16.08.2025 | 11:00       | 2. Runde                   |
+| 16.08.2025 | 12:00       | 3. Runde mit Mittagspause  |
+| 16.08.2025 | 14:00       | 4. Runde                   |
+| 16.08.2025 | 15:00       | 5. Runde                   |
+| 16.08.2025 | 16:00       | 6. Runde                   |
+| 16.08.2025 | 17:00       | 7. Runde                   |
+| 16.08.2025 | Anschließend| Siegerehrung               |
 
 ## Preise
 
