@@ -1,5 +1,5 @@
 ---
-title: Anmeldung - Open
+title: Anmeldung
 type: docs
 toc: false
 ---
