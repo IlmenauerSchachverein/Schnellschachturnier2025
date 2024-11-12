@@ -4,11 +4,13 @@ type: docs
 toc: false
 ---
 
-
-
 Wir freuen uns sehr, dass Sie sich anmelden wollen.
 
 {{< callout type="warning" >}}
+Eine Anmeldung ist aktuell noch nicht möglich.
+{{< /callout >}}
+
+<!-- {{< callout type="warning" >}}
 Die bisherige Anmeldung über das Google Drive-Formular ist weiterhin verfügbar. Auf Wunsch der Teilnehmer, die sich einen besseren Datenschutz gewünscht haben, haben wir zusätzlich eine lokale Lösung implementiert.
 {{< /callout >}}
 
@@ -38,5 +40,5 @@ Für Rückfragen können Sie auch gerne eine Telefonnummer angeben.
 
 
 ## Anmeldung Formular
-<iframe src="https://open24.ilmenauer-schachverein.de/Registrierung/open2024/" width="100%" height="2000px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" scrolling="no"></iframe>
 <br>
+-->
