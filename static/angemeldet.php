@@ -6,7 +6,7 @@
     <title>Anmeldungen ISST 2024</title>
     <style>
         table {
-            width: 80%;
+            width: 90%;
             margin: 20px auto;
             border-collapse: collapse;
             font-family: Arial, sans-serif;
@@ -45,6 +45,8 @@
         
         // Tabelle mit festem Header erstellen
         echo '<tr>';
+        echo '<th>Datum</th>';
+        echo '<th>Zeit</th>';
         echo '<th>Vorname</th>';
         echo '<th>Nachname</th>';
         echo '<th>Verein</th>';
@@ -61,9 +63,20 @@
             // Zeilen der CSV-Datei durchlaufen
             while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
                 echo '<tr>';
-                foreach ($data as $value) {
-                    echo '<td>' . htmlspecialchars($value) . '</td>';
-                }
+                
+                // Spaltenwerte für jede Zeile einfügen
+                echo '<td>' . htmlspecialchars($data[0]) . '</td>'; // Datum
+                echo '<td>' . htmlspecialchars($data[1]) . '</td>'; // Zeit
+                echo '<td>' . htmlspecialchars($data[2]) . '</td>'; // Vorname
+                echo '<td>' . htmlspecialchars($data[3]) . '</td>'; // Nachname
+                echo '<td>' . htmlspecialchars($data[4]) . '</td>'; // Verein
+                echo '<td>' . htmlspecialchars($data[5]) . '</td>'; // Geburtsdatum
+                echo '<td>' . htmlspecialchars($data[6]) . '</td>'; // Handynummer
+                echo '<td>' . htmlspecialchars($data[7]) . '</td>'; // Email
+                echo '<td>' . htmlspecialchars($data[8]) . '</td>'; // Rabattberechtigung
+                echo '<td>' . htmlspecialchars($data[9]) . '</td>'; // Bestätigung
+                echo '<td>' . htmlspecialchars($data[10]) . '</td>'; // AGB Zustimmung
+
                 echo '</tr>';
             }
             fclose($handle);
