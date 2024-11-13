@@ -36,7 +36,7 @@
     </style>
 </head>
 <body>
-    <h1>Anmeldungen ISST 2024 - Vergleich mit ChessResults</h1>
+    <h1>Anmeldungen ISST 2024 </h1>
 
     <?php
     // Pfad zur CSV-Datei
