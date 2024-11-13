@@ -13,4 +13,5 @@ Eine Anmeldung ist aktuell noch nicht möglich.
 -->
 
 
-{{< iframe src="https://isst25.ilmenauer-schachverein.de/anmeldung" width="800" height="600" >}}
+<!-- {{< iframe src="https://isst25.ilmenauer-schachverein.de/anmeldung" width="800" height="600" >}} -->
+asd
