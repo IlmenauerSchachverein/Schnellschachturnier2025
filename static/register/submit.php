@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vorname = htmlspecialchars($_POST['vorname']);
     $nachname = htmlspecialchars($_POST['nachname']);
     $verein = isset($_POST['verein']) ? htmlspecialchars($_POST['verein']) : '';
-    $geburtsjahr = htmlspecialchars($_POST['geburtsjahr']);
+    $geburtsdatum = htmlspecialchars($_POST['geburtsdatum']);
     $handy = isset($_POST['handy']) ? htmlspecialchars($_POST['handy']) : 'Nicht angegeben';
     $email = htmlspecialchars($_POST['email']);
     $rabatt = htmlspecialchars($_POST['rabatt']);
@@ -26,9 +26,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Dateipfad zur CSV-Datei
     $dateipfad = '/var/private/isv/isst25.csv';
 
-    // Validierung des Geburtsjahres (z.B. vierstellige Zahl)
-    if (!ctype_digit($geburtsjahr) || strlen($geburtsjahr) !== 4) {
-        echo "<p style='color:red;'><strong>Fehler:</strong> Bitte geben Sie ein gültiges Geburtsjahr ein.</p>";
+    // Validierung des Geburtsdatums (TT.MM.JJJJ)
+    if (preg_match("/^\d{2}\.\d{2}\.\d{4}$/", $geburtsdatum)) {
+        // Geburtsdatum ist im richtigen Format, weitere Validierung auf Gültigkeit des Datums
+        list($tag, $monat, $jahr) = explode('.', $geburtsdatum);
+        if (checkdate((int)$monat, (int)$tag, (int)$jahr)) {
+            // Geburtsdatum ist gültig
+        } else {
+            echo "<p style='color:red;'><strong>Fehler:</strong> Bitte geben Sie ein gültiges Geburtsdatum ein.</p>";
+            $error = true;
+        }
+    } else {
+        echo "<p style='color:red;'><strong>Fehler:</strong> Bitte das Format TT.MM.JJJJ verwenden.</p>";
         $error = true;
     }
 
@@ -42,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $vorname,
                 $nachname,
                 $verein,
-                $geburtsjahr,
+                $geburtsdatum,
                 $handy,
                 $email,
                 $rabatt,
@@ -71,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo '<tr><td>Vorname</td><td>' . $vorname . '</td></tr>';
         echo '<tr><td>Nachname</td><td>' . $nachname . '</td></tr>';
         echo '<tr><td>Verein</td><td>' . $verein . '</td></tr>';
-        echo '<tr><td>Geburtsjahr</td><td>' . $geburtsjahr . '</td></tr>';
+        echo '<tr><td>Geburtsdatum</td><td>' . $geburtsdatum . '</td></tr>';
         echo '<tr><td>Handynummer</td><td>' . $handy . '</td></tr>';
         echo '<tr><td>E-Mail-Adresse</td><td>' . $email . '</td></tr>';
         echo '<tr><td>Rabattberechtigung</td><td>' . $rabatt . '</td></tr>';
