@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anmeldungen ISST 2025</title>
+    <title>Anmeldungen ISST 2024 - Vergleich mit ChessResults</title>
     <style>
         table {
             width: 90%;
@@ -36,14 +36,14 @@
     </style>
 </head>
 <body>
-    <h1>Anmeldungen ISST 2025 </h1>
+    <h1>Anmeldungen ISST 2024 - Vergleich mit ChessResults</h1>
 
     <?php
     // Pfad zur CSV-Datei
     $csvFile = '/var/private/isv/isst25.csv';
     $csvNames = [];
 
-    // Öffne die CSV-Datei und extrahiere die Namen in einem Array im Format Nachname, Vorname
+    // Öffne die CSV-Datei und extrahiere die Namen im Format "Nachname, Vorname"
     if (file_exists($csvFile)) {
         if (($handle = fopen($csvFile, 'r')) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
@@ -80,6 +80,9 @@
         echo '<p style="color: red; text-align: center;">Fehler: Die Webtabelle konnte nicht geladen werden.</p>';
     }
 
+    // Finde Namen, die auf ChessResults gemeldet sind, aber nicht in der CSV
+    $notInCsv = array_diff($webNames, $csvNames);
+
     // Tabelle erstellen und CSV-Daten anzeigen
     echo '<table>';
     echo '<tr><th>Datum</th><th>Zeit</th><th>Vorname</th><th>Nachname</th><th>Verein</th><th>Geburtsdatum</th><th>Handynummer</th><th>Email</th><th>Rabattberechtigung</th><th>Bestätigung</th><th>AGB Zustimmung</th><th>ChessResults</th></tr>';
@@ -115,6 +118,18 @@
     }
 
     echo '</table>';
+
+    // Liste der Namen, die auf ChessResults stehen, aber nicht in der CSV-Datei sind
+    echo '<h2>Auf ChessResults gemeldet, aber nicht in der CSV-Datei:</h2>';
+    if (!empty($notInCsv)) {
+        echo '<ul>';
+        foreach ($notInCsv as $name) {
+            echo "<li>{$name}</li>";
+        }
+        echo '</ul>';
+    } else {
+        echo '<p>Alle gemeldeten Spieler sind auch in der CSV-Datei vorhanden.</p>';
+    }
     ?>
 </body>
 </html>
