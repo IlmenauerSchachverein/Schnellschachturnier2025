@@ -55,6 +55,4 @@ Das Turnier wird weder nach ELO noch nach DWZ ausgewertet.
 
 - 13 € Startgeld
 - 7 € ermäßigt für Schüler, Studenten, Rentner
-- 5 € Spätmeldegebühr nach dem 26.07.2025
-- Bezahlung nur vor Ort möglich
 - Quittung möglich. Bitte bei Anmeldung sagen
