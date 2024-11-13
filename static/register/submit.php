@@ -1,4 +1,43 @@
 <?php
+// STYLE
+echo '<style>
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+            font-size: 14px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        td {
+            background-color: #f9f9f9;
+        }
+        tr:nth-child(even) td {
+            background-color: #f1f1f1;
+        }
+        tr:hover td {
+            background-color: #e9e9e9;
+        }
+        .success-message {
+            color: green;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>';
+// END STYLE
 $error = false;
 
 // Überprüfen, ob das Formular über POST übermittelt wurde
