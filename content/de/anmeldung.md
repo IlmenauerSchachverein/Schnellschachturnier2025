@@ -12,4 +12,4 @@ Eine Anmeldung ist aktuell noch nicht möglich.
 {{< /callout >}}
 -->
 
-<iframe src="https://isst25.ilmenauer-schachverein.de/register/index.php" width="100%" height="2000px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" scrolling="no"></iframe>
+<iframe src="https://isst25.ilmenauer-schachverein.de/register/index.html" width="100%" height="2000px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" scrolling="no"></iframe>
