@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anmeldungen ISST 2024 - Vergleich mit ChessResults</title>
+    <title>Anmeldungen ISST 2025</title>
     <style>
         table {
             width: 90%;
@@ -36,7 +36,7 @@
     </style>
 </head>
 <body>
-    <h1>Anmeldungen ISST 2024 - Vergleich mit ChessResults</h1>
+    <h1>Anmeldungen ISST 2025</h1>
 
     <?php
     // Pfad zur CSV-Datei
