@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anmeldungen ISST 2024 - Vergleich mit Webtabelle</title>
+    <title>Anmeldungen ISST 2024 - Vergleich mit ChessResults</title>
     <style>
         table {
             width: 90%;
@@ -36,14 +36,14 @@
     </style>
 </head>
 <body>
-    <h1>Anmeldungen ISST 2024 - Vergleich mit Webtabelle</h1>
+    <h1>Anmeldungen ISST 2024 - Vergleich mit ChessResults</h1>
 
     <?php
     // Pfad zur CSV-Datei
     $csvFile = '/var/private/isv/isst25.csv';
     $csvNames = [];
 
-    // Öffne die CSV-Datei und extrahiere die Namen
+    // Öffne die CSV-Datei und extrahiere die Namen in einem Array
     if (file_exists($csvFile)) {
         if (($handle = fopen($csvFile, 'r')) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
@@ -59,54 +59,62 @@
     // Lade die HTML-Inhalte von der Webseite
     $url = 'https://chess-results.com/tnr1056111.aspx?lan=0';
     $html = file_get_contents($url);
+    $webNames = [];
 
     if ($html !== FALSE) {
-        // Nutze DOMDocument und DOMXPath, um die Tabelle zu parsen
+        // Nutze DOMDocument und DOMXPath, um die Namen aus der Webtabelle zu extrahieren
         $dom = new DOMDocument;
         @$dom->loadHTML($html);
         $xpath = new DOMXPath($dom);
 
-        // Finde die Zeilen in der Tabelle
+        // Finde alle Namen in der Tabelle und speichere sie im Array $webNames
         $rows = $xpath->query("//table[@class='CRs1']//tr");
-
-        echo '<table>';
-        echo '<tr><th>Nr.</th><th>Name</th><th>FideID</th><th>Land</th><th>Elo</th><th>Verein/Ort</th></tr>';
-
         foreach ($rows as $index => $row) {
-            // Überspringe die Header-Zeile
-            if ($index === 0) continue;
-
-            // Hole die Zellenwerte
+            if ($index === 0) continue; // Überspringe die Header-Zeile
             $cells = $row->getElementsByTagName('td');
-            if ($cells->length < 7) continue; // Wenn es nicht genug Zellen gibt, überspringen
-
-            // Extrahiere die relevanten Daten
-            $number = trim($cells->item(0)->nodeValue);
-            $name = trim($cells->item(3)->nodeValue);
-            $fideID = trim($cells->item(4)->nodeValue);
-            $country = trim($cells->item(5)->nodeValue);
-            $elo = trim($cells->item(6)->nodeValue);
-            $club = trim($cells->item(7)->nodeValue);
-
-            // Prüfe, ob der Name in der CSV-Liste existiert
-            $highlightClass = in_array($name, $csvNames) ? 'highlight' : '';
-
-            // Zeile in die Tabelle ausgeben, ggf. mit Hervorhebung
-            echo "<tr class='{$highlightClass}'>";
-            echo "<td>{$number}</td>";
-            echo "<td>{$name}</td>";
-            echo "<td>{$fideID}</td>";
-            echo "<td>{$country}</td>";
-            echo "<td>{$elo}</td>";
-            echo "<td>{$club}</td>";
-            echo "</tr>";
+            if ($cells->length >= 4) {
+                $webNames[] = trim($cells->item(3)->nodeValue); // Name in der vierten Zelle
+            }
         }
-
-        echo '</table>';
     } else {
         echo '<p style="color: red; text-align: center;">Fehler: Die Webtabelle konnte nicht geladen werden.</p>';
     }
-    ?>
 
+    // Tabelle erstellen und CSV-Daten anzeigen
+    echo '<table>';
+    echo '<tr><th>Datum</th><th>Zeit</th><th>Vorname</th><th>Nachname</th><th>Verein</th><th>Geburtsdatum</th><th>Handynummer</th><th>Email</th><th>Rabattberechtigung</th><th>Bestätigung</th><th>AGB Zustimmung</th><th>ChessResults</th></tr>';
+
+    if (file_exists($csvFile)) {
+        if (($handle = fopen($csvFile, 'r')) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
+                // Erstelle den vollständigen Namen (Vorname + Nachname) aus der CSV
+                $fullName = trim($data[2]) . ' ' . trim($data[3]);
+
+                // Prüfe, ob der Name in der Webliste vorkommt
+                $highlightClass = in_array($fullName, $webNames) ? 'highlight' : '';
+                $chessResultsMatch = in_array($fullName, $webNames) ? 'X' : '';
+
+                // Zeile in die Tabelle ausgeben
+                echo "<tr class='{$highlightClass}'>";
+                echo '<td>' . htmlspecialchars($data[0]) . '</td>'; // Datum
+                echo '<td>' . htmlspecialchars($data[1]) . '</td>'; // Zeit
+                echo '<td>' . htmlspecialchars($data[2]) . '</td>'; // Vorname
+                echo '<td>' . htmlspecialchars($data[3]) . '</td>'; // Nachname
+                echo '<td>' . htmlspecialchars($data[4]) . '</td>'; // Verein
+                echo '<td>' . htmlspecialchars($data[5]) . '</td>'; // Geburtsdatum
+                echo '<td>' . htmlspecialchars($data[6]) . '</td>'; // Handynummer
+                echo '<td>' . htmlspecialchars($data[7]) . '</td>'; // Email
+                echo '<td>' . htmlspecialchars($data[8]) . '</td>'; // Rabattberechtigung
+                echo '<td>' . htmlspecialchars($data[9]) . '</td>'; // Bestätigung
+                echo '<td>' . htmlspecialchars($data[10]) . '</td>'; // AGB Zustimmung
+                echo "<td>{$chessResultsMatch}</td>"; // ChessResults-Spalte mit 'X' bei Übereinstimmung
+                echo '</tr>';
+            }
+            fclose($handle);
+        }
+    }
+
+    echo '</table>';
+    ?>
 </body>
 </html>
