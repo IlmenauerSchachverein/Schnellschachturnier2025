@@ -43,12 +43,12 @@
     $csvFile = '/var/private/isv/isst25.csv';
     $csvNames = [];
 
-    // Öffne die CSV-Datei und extrahiere die Namen in einem Array
+    // Öffne die CSV-Datei und extrahiere die Namen in einem Array im Format Nachname, Vorname
     if (file_exists($csvFile)) {
         if (($handle = fopen($csvFile, 'r')) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
-                // Vor- und Nachnamen aus der CSV-Datei extrahieren
-                $csvNames[] = trim($data[2]) . ' ' . trim($data[3]); // Annahme: Vorname in $data[2] und Nachname in $data[3]
+                // Kombiniere Nachname und Vorname im Format "Nachname, Vorname"
+                $csvNames[] = trim($data[3]) . ', ' . trim($data[2]); // Annahme: Nachname in $data[3] und Vorname in $data[2]
             }
             fclose($handle);
         }
@@ -73,7 +73,7 @@
             if ($index === 0) continue; // Überspringe die Header-Zeile
             $cells = $row->getElementsByTagName('td');
             if ($cells->length >= 4) {
-                $webNames[] = trim($cells->item(3)->nodeValue); // Name in der vierten Zelle
+                $webNames[] = trim($cells->item(3)->nodeValue); // Name in der vierten Zelle im Format "Nachname, Vorname"
             }
         }
     } else {
@@ -87,8 +87,8 @@
     if (file_exists($csvFile)) {
         if (($handle = fopen($csvFile, 'r')) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
-                // Erstelle den vollständigen Namen (Vorname + Nachname) aus der CSV
-                $fullName = trim($data[2]) . ' ' . trim($data[3]);
+                // Erstelle den vollständigen Namen im Format "Nachname, Vorname" aus der CSV
+                $fullName = trim($data[3]) . ', ' . trim($data[2]);
 
                 // Prüfe, ob der Name in der Webliste vorkommt
                 $highlightClass = in_array($fullName, $webNames) ? 'highlight' : '';
