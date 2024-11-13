@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamische Tabelle aus CSV</title>
+    <title>Anmeldungen ISST 2024</title>
     <style>
         table {
             width: 80%;
@@ -33,49 +33,49 @@
     </style>
 </head>
 <body>
+    <h1>Anmeldungen ISST 2024</h1>
 
-<h2 style="text-align: center;">Daten aus CSV-Datei</h2>
+    <?php
+    // Pfad zur CSV-Datei
+    $csvFile = '/var/private/isv/isst25.csv';
 
-<?php
-// Pfad zur tatsächlichen CSV-Datei
-$csvFile = '/var/private/isv/isst25.csv';
-
-// Überprüfen, ob die Datei existiert
-if (file_exists($csvFile)) {
-    echo '<table>';
-    
-    // Datei öffnen und Daten auslesen
-    if (($handle = fopen($csvFile, 'r')) !== FALSE) {
-        $isHeader = true;
-
-        // Zeilen der CSV-Datei durchlaufen
-        while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
-            echo '<tr>';
-            
-            // Erste Zeile als Tabellenkopf behandeln
-            if ($isHeader) {
-                foreach ($data as $header) {
-                    echo '<th>' . htmlspecialchars($header) . '</th>';
-                }
-                $isHeader = false;
-            } else {
-                // Nachfolgende Zeilen als Tabelleninhalt
+    // Überprüfen, ob die Datei existiert
+    if (file_exists($csvFile)) {
+        echo '<table>';
+        
+        // Tabelle mit festem Header erstellen
+        echo '<tr>';
+        echo '<th>Vorname</th>';
+        echo '<th>Nachname</th>';
+        echo '<th>Verein</th>';
+        echo '<th>Geburtsdatum</th>';
+        echo '<th>Handynummer</th>';
+        echo '<th>Email</th>';
+        echo '<th>Rabattberechtigung</th>';
+        echo '<th>Bestätigung</th>';
+        echo '<th>AGB Zustimmung</th>';
+        echo '</tr>';
+        
+        // Datei öffnen und Daten auslesen
+        if (($handle = fopen($csvFile, 'r')) !== FALSE) {
+            // Zeilen der CSV-Datei durchlaufen
+            while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
+                echo '<tr>';
                 foreach ($data as $value) {
                     echo '<td>' . htmlspecialchars($value) . '</td>';
                 }
+                echo '</tr>';
             }
-            echo '</tr>';
+            fclose($handle);
+        } else {
+            echo '<p style="color: red; text-align: center;">Fehler: Die CSV-Datei konnte nicht gelesen werden.</p>';
         }
-        fclose($handle);
-    } else {
-        echo '<p style="color: red; text-align: center;">Fehler: Die CSV-Datei konnte nicht gelesen werden.</p>';
-    }
 
-    echo '</table>';
-} else {
-    echo '<p style="color: red; text-align: center;">Fehler: Die CSV-Datei existiert nicht.</p>';
-}
-?>
+        echo '</table>';
+    } else {
+        echo '<p style="color: red; text-align: center;">Fehler: Die CSV-Datei existiert nicht.</p>';
+    }
+    ?>
 
 </body>
 </html>
