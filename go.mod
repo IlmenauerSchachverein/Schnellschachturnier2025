@@ -1,4 +1,4 @@
-module open24.ilmenauer-schachverein.de
+module isst25.ilmenauer-schachverein.de
 
 go 1.23
 
